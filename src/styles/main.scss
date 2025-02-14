@@ -37,6 +37,7 @@ body {
 
 .page {
   @include flex(center, center);
+  
   height: 100%;
 }
 

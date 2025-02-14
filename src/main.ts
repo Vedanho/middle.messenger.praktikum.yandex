@@ -33,7 +33,6 @@ const pages = {
 
 const pathName = window.location.pathname.replace("/", "")
 
-
 Object.entries(Components).forEach(([name, template]) => {
   Handlebars.registerPartial(name, template);
 });
