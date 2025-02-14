@@ -1,0 +1,77 @@
+@import "./mixins.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #1e1e1e;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-primary: #3369f3;
+  --color-light-blue: #e4edfd;
+  --color-grey: #999999;
+  --color-platinum: #eaeaea;
+  --color-light-grey: #efefef;
+  --color-white: #ffffff;
+  --color-white-smoke: #fbfbfb;
+  --color-ghost: #f8f8f8;
+  --color-opacity-black: #00000066;
+  --color-red: #ff0000;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+}
+
+.page {
+  @include flex(center, center);
+  height: 100%;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+dialog {
+  border: 0;
+}
+
+.arrow-button {
+  max-width: 28px;
+  height: 28px;
+  background-color: var(--color-primary);
+}
+
+.profile-page {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+}
+
+.profile-data {
+  width: 100%;
+  margin-top: 60px;
+}
+

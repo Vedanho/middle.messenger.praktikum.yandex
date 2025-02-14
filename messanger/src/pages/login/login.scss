@@ -1,0 +1,12 @@
+@import "../../styles//mixins.scss";
+
+.login-form__buttons {
+  @include flex(space-between, center, column, 14px);
+  
+  width: 100%;
+  margin-top: 159px;
+}
+
+.login-form .input-wrapper {
+  margin-top: 16px
+}

@@ -1,0 +1,97 @@
+@import "../../styles//mixins.scss";
+
+.list-wrapper {
+  @include flex(start, start, column);
+
+  padding-top: 21px;
+  background-color: var(--color-white-smoke);
+  border-right: 1px solid var(--color-platinum);
+  overflow: hidden;
+}
+
+.list-search {
+  @include flex(start, start, column, 23px);
+
+  width: 100%;
+  padding: 0 10px;
+
+  &__profile-link {
+    @include flex(start, center, row, 8px);
+
+    align-self: flex-end;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--color-grey);
+  }
+}
+
+.chats-list {
+  margin-top: 14px;
+  overflow: scroll;
+  height: 100%;
+
+  &__item {
+    padding: 12px 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    border-top: 1px solid var(--color-platinum);
+    cursor: pointer;
+
+    &_active {
+      background-color: var(--color-light-blue);
+    }
+  }
+
+  &__avatar {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background-color: var(--color-light-grey);
+  }
+
+  &__content {
+    margin-left: 10px;
+    margin-right: 17px;
+  }
+
+  &__text {
+    @include text-xs;
+    @include text-overflow;
+
+    font-weight: 500;
+    color: var(--color-grey);
+  }
+
+  &__author {
+    @include text-sm;
+
+    margin-bottom: 4px;
+    margin-top: 0;
+    font-weight: 600;
+  }
+
+  &__info {
+    @include flex(start, start, column, 14px);
+  }
+
+  &__time {
+    @include text-tiny;
+
+    font-weight: 500;
+    color: var(--color-grey);
+  }
+
+  &__new-messages {
+    @include flex(center, center);
+
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: 11px;
+    line-height: 12px;
+  }
+}
