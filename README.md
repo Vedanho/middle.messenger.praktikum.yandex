@@ -1,4 +1,4 @@
-### [Чат] (https://practicum-messanger.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/be47fc41-1a75-418c-b052-33daa3676c3d/deploy-status)](https://app.netlify.com/sites/practicum-messanger/deploys)
+### [Чат](https://practicum-messanger.netlify.app/) &middot; [![Netlify Status](https://api.netlify.com/api/v1/badges/be47fc41-1a75-418c-b052-33daa3676c3d/deploy-status)](https://app.netlify.com/sites/practicum-messanger/deploys)
 
 Удобное приложения для общения с друзьями.
 
