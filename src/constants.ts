@@ -94,7 +94,7 @@ export const MESSAGES = [
 
 export const PROFILE_INFO = [
     {
-        keyName: "Почта", 
+        keyName: "Почта",
         value: "pochta@yandex.ru"
     },
     {

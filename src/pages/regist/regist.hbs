@@ -1,17 +1,17 @@
 <main class="page">
-    {{#> AuthContainer title="Регистрация"}}
-        <form class="regist-form">
-          {{> Input label="Почта" inputName="mail" type="mail" isNeedLabel=true variant="underline"}}
-          {{> Input label="Логин" inputName="login" type="text" isNeedLabel=true variant="underline"}}
-          {{> Input label="Имя" inputName="first_name" type="text" isNeedLabel=true variant="underline"}}
-          {{> Input label="Фамилия" inputName="second_name" type="text" isNeedLabel=true variant="underline"}}
-          {{> Input label="Телефон" inputName="phone" type="number" isNeedLabel=true variant="underline"}}
-          {{> Input label="Пароль" inputName="password" type="password" isNeedLabel=true variant="underline"}}
-          {{> Input label="Пароль (ещё раз)" inputName="repeat_password" type="password" isNeedLabel=true variant="underline"}}
-          <div class="regist-form__buttons">
-            {{> Button label="Зарегистрироваться" type="primary"}}
-            {{> Button label="Войти" type="transparent"}}
-          </div>
-        </form>
-    {{/AuthContainer}}
+  {{#> AuthContainer title="Регистрация"}}
+    <form class="regist-form">
+      {{> Input label="Почта" inputName="mail" type="mail" isNeedLabel=true variant="underline"}}
+      {{> Input label="Логин" inputName="login" type="text" isNeedLabel=true variant="underline"}}
+      {{> Input label="Имя" inputName="first_name" type="text" isNeedLabel=true variant="underline"}}
+      {{> Input label="Фамилия" inputName="second_name" type="text" isNeedLabel=true variant="underline"}}
+      {{> Input label="Телефон" inputName="phone" type="number" isNeedLabel=true variant="underline"}}
+      {{> Input label="Пароль" inputName="password" type="password" isNeedLabel=true variant="underline"}}
+      {{> Input label="Пароль (ещё раз)" inputName="repeat_password" type="password" isNeedLabel=true variant="underline"}}
+      <div class="regist-form__buttons">
+        {{> Button label="Зарегистрироваться" type="primary"}}
+        {{> Button label="Войти" type="transparent"}}
+      </div>
+    </form>
+  {{/AuthContainer}}
 </main>
