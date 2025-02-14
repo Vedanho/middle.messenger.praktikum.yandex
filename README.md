@@ -17,13 +17,13 @@
 
 ### Ссылки на страницы приложения
 
-https://practicum-messanger.netlify.app/login - страница авторизации;
-https://practicum-messanger.netlify.app/regist - страница регистрации;
-https://practicum-messanger.netlify.app/chat - cтраница чата;
-https://practicum-messanger.netlify.app/chat-modal - страница чата с открытой модалкой;
-https://practicum-messanger.netlify.app/profile - страница на профиль;
-https://practicum-messanger.netlify.app/profile-change - страница на изменение данных в профиле;
-https://practicum-messanger.netlify.app/change-password - страница на изменение пароля;
-https://practicum-messanger.netlify.app/profile-modal - страница профиля с открытой модалкой;
-https://practicum-messanger.netlify.app/not-found (либо несуществующий адрес) - страница 404;
-https://practicum-messanger.netlify.app/error-page - страница 50*;
+- https://practicum-messanger.netlify.app/login - страница авторизации;
+- https://practicum-messanger.netlify.app/regist - страница регистрации;
+- https://practicum-messanger.netlify.app/chat - cтраница чата;
+- https://practicum-messanger.netlify.app/chat-modal - страница чата с открытой модалкой;
+- https://practicum-messanger.netlify.app/profile - страница на профиль;
+- https://practicum-messanger.netlify.app/profile-change - страница на изменение данных в профиле;
+- https://practicum-messanger.netlify.app/change-password - страница на изменение пароля;
+- https://practicum-messanger.netlify.app/profile-modal - страница профиля с открытой модалкой;
+- https://practicum-messanger.netlify.app/not-found (либо несуществующий адрес) - страница 404;
+- https://practicum-messanger.netlify.app/error-page - страница 50*;
