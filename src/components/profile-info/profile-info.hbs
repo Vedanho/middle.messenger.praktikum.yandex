@@ -3,7 +3,7 @@
     <div class="profile-info__item">
       <span class="profile-info__name">{{keyName}}</span>
       {{#if ../isChangeProfile}}
-        {{> Input type="text"}}
+        {{> Input inputName=name type="text"}}
       {{else}}
         <span class="profile-info__value">{{value}}</span>
       {{/if}}

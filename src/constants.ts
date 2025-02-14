@@ -95,26 +95,32 @@ export const MESSAGES = [
 export const PROFILE_INFO = [
     {
         keyName: "Почта",
-        value: "pochta@yandex.ru"
+        value: "pochta@yandex.ru",
+        name: "email"
     },
     {
         keyName: "Логин",
-        value: "ivanivanov"
+        value: "ivanivanov",
+        name: "login"
     },
     {
         keyName: "Имя",
-        value: "Иван"
+        value: "Иван",
+        name: "first_name"
     },
     {
         keyName: "Фамилия",
-        value: "Иванов"
+        value: "Иванов",
+        name: "second_name"
     },
     {
         keyName: "Имя в чате",
-        value: "Иван"
+        value: "Иван",
+        name: "display_name"
     },
     {
         keyName: "Телефон",
-        value: "+7 (909) 967 30 30"
+        value: "+7 (909) 967 30 30",
+        name: "phone"
     }
 ]
