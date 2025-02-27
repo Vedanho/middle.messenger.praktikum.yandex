@@ -1,0 +1,12 @@
+<div class="profile-info">
+  {{#each profileInfo}}
+    <div class="profile-info__item">
+      <span class="profile-info__name">{{keyName}}</span>
+      {{#if ../isChangeProfile}}
+        {{> Input inputName=name type="text"}}
+      {{else}}
+        <span class="profile-info__value">{{value}}</span>
+      {{/if}}
+    </div>
+  {{/each}}
+</div>

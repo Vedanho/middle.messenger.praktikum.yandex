@@ -1,0 +1,21 @@
+@import "../../styles/mixins.scss";
+
+.actions-modal {
+  @include flex(start, start, column, 16px);
+
+  padding: 15px;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0px 0px 6px 0px #00000024;
+  position: absolute;
+
+  .button {
+    @include text-xs;
+
+    background-color: transparent;
+    column-gap: 10px;
+    white-space: nowrap;
+    justify-content: start;
+    font-weight: 500;
+  }
+}

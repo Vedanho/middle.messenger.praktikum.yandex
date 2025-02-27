@@ -1,0 +1,32 @@
+@import "../../styles/mixins.scss";
+
+.button {
+  @include flex(center, center);
+
+  width: 100%;
+  border: none;
+  cursor: pointer;
+
+  &_primary {
+    @include text-sm;
+
+    height: 37px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 500;
+    border-radius: 8px;
+  }
+
+  &_transparent {
+    background-color: transparent;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 0;
+  }
+
+  &_rounded {
+    border-radius: 50%;
+  }
+}

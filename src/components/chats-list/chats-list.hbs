@@ -1,0 +1,24 @@
+<div class="list-wrapper">
+  <div class="list-search">
+    <div class="list-search__profile-link">
+      <span>Профиль</span>
+      <img src="../../../link-icon.svg" alt="icon">
+    </div>
+    {{> Input type="text" variant="search" placeholder="Поиск" icon="../../../search-icon.svg"}}
+  </div>
+  <ul class="chats-list">
+    {{#each messages}}
+      <li class="chats-list__item {{#if active}}chats-list__item_active{{/if}}">
+        <div class="chats-list__avatar"></div>
+        <div class="chats-list__content">
+          <h2 class="chats-list__author">{{author}}</h2>
+          <div class="chats-list__text">{{message}}</div>
+        </div>
+        <div class="chats-list__info">
+          <span class="chats-list__time">{{date}}</span>
+          <span class="chats-list__new-messages">{{messagesCount}}</span>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>

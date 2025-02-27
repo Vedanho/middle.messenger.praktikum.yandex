@@ -1,0 +1,65 @@
+@import "../../styles/mixins.scss";
+
+.input-wrapper {
+  width: 100%;
+  position: relative;
+
+  .input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &_underline {
+      @include text-sm;
+
+      height: 37px;
+      border-bottom: 1px solid var(--color-primary);
+      font-weight: 500;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    &_grey {
+      padding: 0 10px;
+      background-color: var(--color-light-grey);
+    }
+
+    &_search {
+      height: 32px;
+      padding: 0 34px;
+      border-radius: 5px;
+      background-color: var(--color-light-grey);
+      font-size: 12px;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 9px;
+    color: var(--color-grey);
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: 0;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

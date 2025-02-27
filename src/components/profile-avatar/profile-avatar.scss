@@ -1,0 +1,12 @@
+@import "../../styles/mixins.scss";
+
+.profile-avatar {
+  text-align: center;
+
+  &__name {
+    @include text-md;
+
+    margin-top: 21px;
+    margin-bottom: 0;
+  }
+}

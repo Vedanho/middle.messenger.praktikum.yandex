@@ -1,0 +1,22 @@
+<main class="profile-page">
+  {{> NavBack}}
+  <section class="data-wrapper">
+    <div class="profile-data">
+      {{> ProfileAvatar name="Badruddi"}}
+      {{> ProfileInfo profileInfo=profileInfo}}
+    </div>
+    <div class="profile-actions">
+      <a href="#" page="profile-change" class="profile-actions__link">Изменить данные</a>
+      <a href="#" page="change-password" class="profile-actions__link">Изменить пароль</a>
+      <a href="#" page="login" class="profile-actions__link profile-actions__link_red">Выйти</a>
+    </div>
+  </section>
+  {{#if isShowModal}}
+    {{#> Dialog title="Загрузите файл" buttonLabel="Поменять"}}
+      <div class="upload-file">
+        {{> Input inputName="file" type="file"}}
+        <label for="file" class="upload-file__text">Выбрать файл на компьютере</label>
+      </div>
+    {{/Dialog}}
+  {{/if}}
+</main>

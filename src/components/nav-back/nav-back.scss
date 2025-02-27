@@ -1,0 +1,12 @@
+@import "../../styles/mixins.scss";
+
+.nav-back {
+  @include flex(center, center);
+
+  background-color: var(--color-white-smoke);
+  border-right: 1px solid var(--color-platinum);
+
+  .button img {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,14 @@
+<main class="profile-page">
+  {{> NavBack}}
+  <section class="data-wrapper">
+    <form class="profile-form">
+      <div class="profile-data">
+        {{> ProfileAvatar}}
+        {{> ProfileInfo profileInfo=profileInfo isChangeProfile=isChangeProfile}}
+      </div>
+      <div class="profile-actions">
+        {{> Button className="profile-actions__save-changes-btn" label="Сохранить" type="primary"}}
+      </div>
+    </form>
+  </section>
+</main>

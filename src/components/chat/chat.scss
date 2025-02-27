@@ -1,0 +1,137 @@
+@import "../../styles//mixins.scss";
+
+.chat {
+  &__container {
+    height: 100%;
+    padding: 0 10px;
+  }
+}
+
+.chat-header {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 10px;
+  border-bottom: 1px solid var(--color-platinum);
+
+  &__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--color-light-grey);
+  }
+
+  &__author {
+    @include text-sm;
+
+    margin: 0;
+    font-weight: 600;
+  }
+
+  &__button-wrapper {
+    position: relative;
+
+    .actions-modal {
+      bottom: -122px;
+      right: 0;
+    }
+
+    .clear-button img {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.chat-messages {
+  @include flex(start, start, column);
+
+  height: calc(100vh - 120px);
+  overflow: scroll;
+  padding: 48px 0 30px;
+
+  &__correspondence {
+    width: 100%;
+  }
+
+  &__date {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 500;
+    color: var(--color-grey);
+    text-align: center;
+  }
+
+  &__message-wrapper {
+    @include flex();
+
+    margin-top: 30px;
+
+    &_user {
+      justify-content: end;
+    }
+  }
+
+  &__message-content {
+    @include flex(start, start, column, 21px);
+
+    max-width: 402px;
+  }
+
+  &__message-text {
+    @include text-xs;
+
+    padding: 11px;
+    border-radius: 0 11px 11px 11px;
+    background-color: var(--color-ghost);
+
+    &_user {
+      background-color: var(--color-light-blue);
+      border-radius: 11px 11px 0 11px;
+    }
+  }
+
+  &__time {
+    margin-left: 4px;
+    float: right;
+    font-size: 9px;
+    line-height: 15px;
+    color: var(--color-grey);
+
+    &_user {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.chat-form-wrapper {
+  padding: 10px 0;
+  border-top: 1px solid var(--color-platinum);
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 10px;
+  align-items: center;
+
+  &__attach-button {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  &__attach-wrapper {
+    position: relative;
+
+    .actions-modal {
+      bottom: 53px;
+    }
+  }
+}
+
+.chat-form .input {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  line-height: 12px;
+}

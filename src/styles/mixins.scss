@@ -1,0 +1,35 @@
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin text-md {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+@mixin text-sm {
+  font-size: 13px;
+  line-height: 13px;
+}
+
+@mixin text-xs {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@mixin text-tiny {
+  font-size: 9px;
+  line-height: 13px;
+}
+
+@mixin text-overflow {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

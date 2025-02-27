@@ -1,0 +1,33 @@
+@import "../../styles/mixins.scss";
+
+.profile-info {
+  @include flex(start, start, column);
+
+  margin-top: 60px;
+
+  &__item {
+    @include flex(space-between, center);
+    @include text-sm;
+
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-platinum);
+
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__value,
+  input {
+    color: var(--color-grey);
+  }
+
+  .input-wrapper {
+    width: auto;
+  }
+}
