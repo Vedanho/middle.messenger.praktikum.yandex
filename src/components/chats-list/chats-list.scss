@@ -1,4 +1,4 @@
-@import "../../styles//mixins.scss";
+@use "../../styles/mixins.scss" as *;
 
 .list-wrapper {
   @include flex(start, start, column);

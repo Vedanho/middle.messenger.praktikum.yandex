@@ -1,2 +1,3 @@
-import "./profile-change.scss";
-export { default as ProfileChangePage } from "./profile-change.hbs?raw";
+import './profile-change.scss';
+
+export { default as ProfileChangePage } from './profile-change.hbs?raw';

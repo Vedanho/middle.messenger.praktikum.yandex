@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@use "./mixins" as *;
 
 * {
   box-sizing: border-box;
@@ -14,16 +14,17 @@
   color: #1e1e1e;
   line-height: 1.5;
   font-weight: 400;
+
   --color-primary: #3369f3;
   --color-light-blue: #e4edfd;
-  --color-grey: #999999;
+  --color-grey: #999;
   --color-platinum: #eaeaea;
   --color-light-grey: #efefef;
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-white-smoke: #fbfbfb;
   --color-ghost: #f8f8f8;
-  --color-opacity-black: #00000066;
-  --color-red: #ff0000;
+  --color-opacity-black: #0006;
+  --color-red: #f00;
 }
 
 body {

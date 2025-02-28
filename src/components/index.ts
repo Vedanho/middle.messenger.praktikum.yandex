@@ -8,6 +8,6 @@ export { ActionsModal } from './actions-modal';
 export { Dialog } from './dialog';
 export { NavBack } from './nav-back';
 export { ProfileAvatar } from './profile-avatar';
-export { ProfileInfo } from "./profile-info";
+export { ProfileInfo } from './profile-info';
 export { ProfilePassword } from './profile-password';
 export { ErrorContent } from './error';

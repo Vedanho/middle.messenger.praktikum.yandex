@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@use "../../styles/mixins" as *;
 
 .profile-avatar {
   text-align: center;
