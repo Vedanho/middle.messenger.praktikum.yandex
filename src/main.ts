@@ -3,6 +3,7 @@ import './styles/main.scss';
 import * as Pages from './pages';
 import * as Components from './components';
 import { MESSAGES, PROFILE_INFO } from './constants';
+import renderDOM from './core/renderDom';
 
 const pages = {
   login: [Pages.LoginPage],
@@ -34,6 +35,10 @@ const pages = {
 const pathName = window.location.pathname.replace('/', '');
 
 Object.entries(Components).forEach(([name, template]) => {
+  if (template === 'function') {
+    return;
+  }
+
   Handlebars.registerPartial(name, template);
 });
 
@@ -42,6 +47,11 @@ function navigate(page: string) {
   const [source, context] = pages[page] || pages['not-found'];
 
   const container = document.getElementById('app')!;
+
+  if (typeof source === 'function') {
+    renderDOM(new source());
+    return;
+  }
 
   const temlpatingFunction = Handlebars.compile(source);
 

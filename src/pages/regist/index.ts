@@ -1,3 +1,3 @@
 import './regist.scss';
 
-export { default as RegistPage } from './regist.hbs?raw';
+export { default as RegistPage } from './regist';

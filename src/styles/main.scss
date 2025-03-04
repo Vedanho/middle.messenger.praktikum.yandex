@@ -25,6 +25,7 @@
   --color-ghost: #f8f8f8;
   --color-opacity-black: #0006;
   --color-red: #f00;
+  --color-light-red: #FF2F2F;
 }
 
 body {
@@ -75,4 +76,12 @@ dialog {
 .profile-data {
   width: 100%;
   margin-top: 60px;
+}
+
+.error-message {
+  font-size: 8px;
+  line-height: 8px;
+  color: var(--color-light-red);
+  margin-top: 7px;
+  margin-bottom: 0;
 }

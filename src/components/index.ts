@@ -1,7 +1,7 @@
-export { Input } from './input';
+export { InputField } from './input';
+export { Button } from './button';
 export { Title } from './title';
 export { AuthContainer } from './auth-container';
-export { Button } from './button';
 export { ChatsList } from './chats-list';
 export { Chat } from './chat';
 export { ActionsModal } from './actions-modal';
