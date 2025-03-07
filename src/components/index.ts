@@ -1,9 +1,10 @@
 export { InputField } from './input';
 export { Button } from './button';
+export { ChatComponent } from './chat-component';
 export { Title } from './title';
 export { AuthContainer } from './auth-container';
 export { ChatsList } from './chats-list';
-export { Chat } from './chat';
+export { ChatMessages } from './chat-messages';
 export { ActionsModal } from './actions-modal';
 export { Dialog } from './dialog';
 export { NavBack } from './nav-back';

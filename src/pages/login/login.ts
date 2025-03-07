@@ -8,9 +8,9 @@ interface FormState {
   password: string;
 }
 
-interface FormErrors {
-  login: string;
-  password: string;
+enum ErrorMessages {
+  LOGIN_ERROR = 'Неправильный логин',
+  PASSWORD_ERROR = 'Неправильный пароль',
 }
 
 export default class Login extends Block {
@@ -21,10 +21,6 @@ export default class Login extends Block {
         login: '',
         password: '',
       } as FormState,
-      errors: {
-        login: '',
-        password: '',
-      } as FormErrors,
       InputLogin: new InputField({
         isNeedLabel: true,
         label: 'Логин',
@@ -33,21 +29,13 @@ export default class Login extends Block {
         type: 'text',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-
-          this.setProps({ errors: { ...this.props.errors, login: '' } });
-          this.children.InputLogin.setProps({
-            error: this.props.errors.login,
-          });
-          this.setProps({ formState: { ...this.props.formState, login: value } });
+          this.handleChangeInput({ field: 'login', value, elementName: 'InputLogin' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidLogin(value)) {
-            this.setProps({ errors: { ...this.props.errors, login: 'Неправильный логин' } });
-            this.children.InputLogin.setProps({
-              error: this.props.errors.login,
-            });
+            this.setErrorMsg({ elementName: 'InputLogin', errorMessage: ErrorMessages.LOGIN_ERROR });
           }
         },
       }),
@@ -59,22 +47,13 @@ export default class Login extends Block {
         type: 'password',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-          this.setProps({
-            errors: { ...this.props.errors, password: '' },
-            formState: { ...this.props.formState, password: value },
-          });
-          this.children.InputPassword.setProps({
-            error: this.props.errors.password,
-          });
+          this.handleChangeInput({ field: 'password', value, elementName: 'InputPassword' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidPassword(value)) {
-            this.setProps({ errors: { ...this.props.errors, password: 'Неправильный пароль' } });
-            this.children.InputPassword.setProps({
-              error: this.props.errors.password,
-            });
+            this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
           }
         },
       }),
@@ -86,17 +65,11 @@ export default class Login extends Block {
           event.preventDefault();
 
           if (!isValidLogin(this.props.formState.login)) {
-            this.setProps({ errors: { ...this.props.errors, login: 'Неправильный логин' } });
-            this.children.InputLogin.setProps({
-              error: this.props.errors.login,
-            });
+            this.setErrorMsg({ elementName: 'InputLogin', errorMessage: ErrorMessages.LOGIN_ERROR });
           }
 
           if (!isValidPassword(this.props.formState.password)) {
-            this.setProps({ errors: { ...this.props.errors, password: 'Неправильный пароль' } });
-            this.children.InputPassword.setProps({
-              error: this.props.errors.password,
-            });
+            this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
           }
 
           console.log(this.props.formState);
@@ -105,6 +78,19 @@ export default class Login extends Block {
       ButtonRegist: new Button({ label: 'Нет аккаунта', variant: 'transparent', type: 'button' }),
     }, {
       className: 'page',
+    });
+  }
+
+  private handleChangeInput({ field, value, elementName }: { field: string, value: string, elementName: string }) {
+    this.children[elementName].setProps({
+      error: '',
+    });
+    this.setProps({ formState: { ...this.props.formState, [field]: value } });
+  }
+
+  private setErrorMsg({ elementName, errorMessage }: { elementName: string, errorMessage: string }) {
+    this.children[elementName].setProps({
+      error: errorMessage,
     });
   }
 

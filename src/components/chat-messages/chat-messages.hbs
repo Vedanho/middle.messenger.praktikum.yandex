@@ -1,21 +1,20 @@
-<section class="chat">
-  {{#if isShowModal}}
+  {{!-- {{#if isShowModal}}
     {{#> Dialog title="Добавить пользователя" buttonLabel="Добавить"}}
       {{> Input isNeedLabel=true label="Логин" inputName="login" type="text" variant="underline"}}
     {{/Dialog}}
-  {{/if}}
+  {{/if}} --}}
 
   <div class="chat__container">
     <div class="chat-header">
       <div class="chat-header__avatar"></div>
-      <h1 class="chat-header__author">Author</h1>
+      <h1 class="chat-header__author">{{this.props.activeChat.author}}</h1>
 
       <div class="chat-header__button-wrapper">
-        {{> Button type="rounded" label="⋮"}}
-        {{#> ActionsModal}}
+        {{!-- {{> Button type="rounded" label="⋮"}} --}}
+        {{!-- {{#> ActionsModal}}
           {{> Button isIcon=true iconSrc="../../../add-icon.svg" label="Добавить пользователя"}}
           {{> Button className="clear-button" isIcon=true iconSrc="../../../add-icon.svg" label="Удалить пользователя"}}
-        {{/ActionsModal}}
+        {{/ActionsModal}} --}}
       </div>
     </div>
 
@@ -53,16 +52,15 @@
     <div class="chat-form-wrapper">
       <form class="chat-form">
         <div class="chat-form__attach-wrapper">
-          {{> Button className="chat-form__attach-button" isIcon=true iconSrc="../../../attachment-icon.svg" iconWidth="32" iconHeight="32"}}
-          {{#> ActionsModal}}
+          {{!-- {{> Button className="chat-form__attach-button" isIcon=true iconSrc="../../../attachment-icon.svg" iconWidth="32" iconHeight="32"}} --}}
+          {{!-- {{#> ActionsModal}}
             {{> Button isIcon=true iconSrc="../../../photo-icon.svg" label="Фото или Видео"}}
             {{> Button isIcon=true iconSrc="../../../file-icon.svg" label="Файл"}}
             {{> Button isIcon=true iconSrc="../../../location-icon.svg" label="Локация"}}
-          {{/ActionsModal}}
+          {{/ActionsModal}} --}}
         </div>
-        {{> Input type="text" placeholder="Сообщение" variant="grey"}}
-        {{> Button className="arrow-button" type="rounded" isIcon=true iconWidth="28" iconHeight="28" iconSrc="../../../arrow.svg"}}
+        {{!-- {{> Input type="text" placeholder="Сообщение" variant="grey"}} --}}
+        {{!-- {{> Button className="arrow-button" type="rounded" isIcon=true iconWidth="28" iconHeight="28" iconSrc="../../../arrow.svg"}} --}}
       </form>
     </div>
   </div>
-</section>

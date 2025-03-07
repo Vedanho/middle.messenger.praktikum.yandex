@@ -3,13 +3,15 @@ import Input from './input';
 import template from './input.hbs?raw';
 
 interface InputFiledProps {
-  label: string;
-  isNeedLabel: boolean;
+  label?: string;
+  isNeedLabel?: boolean;
   inputName?: string;
   onChange?: (event: InputEvent) => void;
   onBlur?: (event: FocusEvent) => void;
   variant?: string,
-  type?: string
+  type?: string,
+  icon?: string;
+  placeholder?: string;
 }
 
 export default class InputFiled extends Block {
@@ -21,6 +23,7 @@ export default class InputFiled extends Block {
       inputName,
       onChange,
       onBlur,
+      placeholder,
     } = props;
 
     super('div', {
@@ -32,6 +35,7 @@ export default class InputFiled extends Block {
         type,
         inputName,
         onBlur,
+        placeholder,
       }),
     }, {
       className: 'input-wrapper',

@@ -19,28 +19,18 @@ interface FormState {
   repeat_password: string;
 }
 
-interface FormErrors {
-  email: string;
-  login: string;
-  first_name: string;
-  second_name: string;
-  phone: string;
-  password: string;
-  repeat_password: string;
-}
-
 enum ErrorMessages {
-  LOGIN_ERROR = 'Неправильный логин',
-  FIRST_NAME_ERROR = 'Неправильное имя',
-  SECOND_NAME_ERROR = 'Неправильная фамилия',
-  PHONE_ERROR = 'Неправильный номер телефона',
-  PASSWORD_ERROR = 'Неправильный пароль',
-  REPEAT_PASSWORD_ERROR = 'Пароли не совпадают',
-  EMAIL_ERROR = 'Неправильный email',
+  LOGIN_ERROR = 'Недопустимый логин',
+  FIRST_NAME_ERROR = 'Недопустимое имя',
+  SECOND_NAME_ERROR = 'Недопустимая фамилия',
+  PHONE_ERROR = 'Недопустимый номер телефона',
+  PASSWORD_ERROR = 'Недопустимый пароль',
+  REPEAT_PASSWORD_ERROR = 'Пароли должны совпадать',
+  EMAIL_ERROR = 'Недопустимый email',
 }
 
 export default class Regist extends Block {
-  constructor(props) {
+  constructor(props: Record<string, unknown>) {
     super('main', {
       ...props,
       formState: {
@@ -52,14 +42,6 @@ export default class Regist extends Block {
         password: '',
         repeat_password: '',
       } as FormState,
-      errors: {
-        login: '',
-        first_name: '',
-        second_name: '',
-        phone: '',
-        password: '',
-        repeat_password: '',
-      } as FormErrors,
       InputEmail: new InputField({
         isNeedLabel: true,
         label: 'Почта',
@@ -68,21 +50,17 @@ export default class Regist extends Block {
         type: 'text',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-          this.handleChangeInput(value, 'email', 'InputEmail');
-          // this.setProps({ errors: { ...this.props.errors, email: '' } });
-          // this.children.InputEmail.setProps({
-          //   error: this.props.errors.email,
-          // });
-          // this.setProps({ formState: { ...this.props.formState, email: value } });
+          this.handleChangeInput({
+            field: 'email',
+            value,
+            elementName: 'InputEmail',
+          });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidEmail(value)) {
-            this.setProps({ errors: { ...this.props.errors, email: 'Недопустимый email' } });
-            this.children.InputEmail.setProps({
-              error: this.props.errors.email,
-            });
+            this.setErrorMsg({ elementName: 'InputEmail', errorMessage: ErrorMessages.EMAIL_ERROR });
           }
         },
       }),
@@ -94,21 +72,17 @@ export default class Regist extends Block {
         type: 'text',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-
-          this.setProps({ errors: { ...this.props.errors, first_name: '' } });
-          this.children.InputFirstName.setProps({
-            error: this.props.errors.first_name,
+          this.handleChangeInput({
+            field: 'first_name',
+            value,
+            elementName: 'InputFirstName',
           });
-          this.setProps({ formState: { ...this.props.formState, first_name: value } });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidName(value)) {
-            this.setProps({ errors: { ...this.props.errors, first_name: 'Недопустимое имя' } });
-            this.children.InputFirstName.setProps({
-              error: this.props.errors.first_name,
-            });
+            this.setErrorMsg({ elementName: 'InputFirstName', errorMessage: ErrorMessages.FIRST_NAME_ERROR });
           }
         },
       }),
@@ -120,26 +94,13 @@ export default class Regist extends Block {
         type: 'text',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-
-          this.setProps({ errors: { ...this.props.errors, second_name: '' } });
-          this.children.InputSecondName.setProps({
-            error: this.props.errors.second_name,
-          });
-          this.setProps({ formState: { ...this.props.formState, second_name: value } });
+          this.handleChangeInput({ field: 'second_name', value, elementName: 'InputSecondName' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidName(value)) {
-            this.setProps({
-              errors: {
-                ...this.props.errors,
-                second_name: 'Недопустимая фамилия',
-              },
-            });
-            this.children.InputSecondName.setProps({
-              error: this.props.errors.second_name,
-            });
+            this.setErrorMsg({ elementName: 'InputSecondName', errorMessage: ErrorMessages.SECOND_NAME_ERROR });
           }
         },
       }),
@@ -152,20 +113,13 @@ export default class Regist extends Block {
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
 
-          this.setProps({ errors: { ...this.props.errors, login: '' } });
-          this.children.InputLogin.setProps({
-            error: this.props.errors.login,
-          });
-          this.setProps({ formState: { ...this.props.formState, login: value } });
+          this.handleChangeInput({ field: 'login', value, elementName: 'InputLogin' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidLogin(value)) {
-            this.setProps({ errors: { ...this.props.errors, login: 'Недопустимый логин' } });
-            this.children.InputLogin.setProps({
-              error: this.props.errors.login,
-            });
+            this.setErrorMsg({ elementName: 'InputLogin', errorMessage: ErrorMessages.LOGIN_ERROR });
           }
         },
       }),
@@ -178,20 +132,13 @@ export default class Regist extends Block {
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
 
-          this.setProps({ errors: { ...this.props.errors, phone: '' } });
-          this.children.InputPhone.setProps({
-            error: this.props.errors.phone,
-          });
-          this.setProps({ formState: { ...this.props.formState, phone: value } });
+          this.handleChangeInput({ field: 'phone', value, elementName: 'InputPhone' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidPhone(value)) {
-            this.setProps({ errors: { ...this.props.errors, phone: 'Недопустимый телефон' } });
-            this.children.InputPhone.setProps({
-              error: this.props.errors.phone,
-            });
+            this.setErrorMsg({ elementName: 'InputPhone', errorMessage: ErrorMessages.PHONE_ERROR });
           }
         },
       }),
@@ -203,22 +150,13 @@ export default class Regist extends Block {
         type: 'password',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-          this.setProps({
-            errors: { ...this.props.errors, password: '' },
-            formState: { ...this.props.formState, password: value },
-          });
-          this.children.InputPassword.setProps({
-            error: this.props.errors.password,
-          });
+          this.handleChangeInput({ field: 'password', value, elementName: 'InputPassword' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (!isValidPassword(value)) {
-            this.setProps({ errors: { ...this.props.errors, password: 'Недопустимый пароль' } });
-            this.children.InputPassword.setProps({
-              error: this.props.errors.password,
-            });
+            this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
           }
         },
       }),
@@ -230,27 +168,13 @@ export default class Regist extends Block {
         type: 'password',
         onChange: (event) => {
           const { value } = event.target as HTMLInputElement;
-          this.setProps({
-            errors: { ...this.props.errors, repeat_password: '' },
-            formState: { ...this.props.formState, repeat_password: value },
-          });
-          this.children.InputRepeatPassword.setProps({
-            error: this.props.errors.repeat_password,
-          });
+          this.handleChangeInput({ field: 'repeat_password', value, elementName: 'InputRepeatPassword' });
         },
         onBlur: (event) => {
           const { value } = event.target as HTMLInputElement;
 
           if (this.props.formState.password !== value) {
-            this.setProps({
-              errors: {
-                ...this.props.errors,
-                repeat_password: 'Пароли должны совпадать',
-              },
-            });
-            this.children.InputRepeatPassword.setProps({
-              error: this.props.errors.repeat_password,
-            });
+            this.setErrorMsg({ elementName: 'InputRepeatPassword', errorMessage: ErrorMessages.REPEAT_PASSWORD_ERROR });
           }
         },
       }),
@@ -260,55 +184,7 @@ export default class Regist extends Block {
         type: 'submit',
         onClick: (event) => {
           event.preventDefault();
-
-          if (!isValidLogin(this.props.formState.login)) {
-            this.setProps({ errors: { ...this.props.errors, login: 'Недопустимый логин' } });
-            this.children.InputLogin.setProps({
-              error: this.props.errors.login,
-            });
-          }
-
-          if (!isValidPassword(this.props.formState.password)) {
-            this.setProps({ errors: { ...this.props.errors, password: 'Недопустимый пароль' } });
-            this.children.InputPassword.setProps({
-              error: this.props.errors.password,
-            });
-          }
-
-          if (!isValidEmail(this.props.formState.email)) {
-            this.setProps({ errors: { ...this.props.errors, email: 'Недопустимый email' } });
-            this.children.InputEmail.setProps({
-              error: this.props.errors.email,
-            });
-          }
-
-          if (!isValidPhone(this.props.formState.phone)) {
-            this.setProps({ errors: { ...this.props.errors, phone: 'Недопустимый телефон' } });
-            this.children.InputPhone.setProps({
-              error: this.props.errors.phone,
-            });
-          }
-
-          if (!isValidName(this.props.formState.first_name)) {
-            this.setProps({ errors: { ...this.props.errors, first_name: 'Недопустимое имя' } });
-            this.children.InputFirstName.setProps({
-              error: this.props.errors.first_name,
-            });
-          }
-
-          if (!isValidName(this.props.formState.second_name)) {
-            this.setProps({ errors: { ...this.props.errors, second_name: 'Недопустимое имя' } });
-            this.children.InputSecondName.setProps({
-              error: this.props.errors.second_name,
-            });
-          }
-
-          if (this.props.formState.password !== this.props.formState.repeat_password) {
-            this.setProps({ errors: { ...this.props.errors, repeat_password: 'Пароли должны совпадать' } });
-            this.children.InputRepeatPassword.setProps({
-              error: this.props.errors.repeat_password,
-            });
-          }
+          this.validateAllFields();
 
           console.log(this.props.formState);
         },
@@ -320,12 +196,47 @@ export default class Regist extends Block {
     });
   }
 
-  private handleChangeInput(name: string, value: string, elementName: string) {
-    this.setProps({ errors: { ...this.props.errors, name: '' } });
+  private handleChangeInput({ field, value, elementName }: { field: string, value: string, elementName: string }) {
     this.children[elementName].setProps({
-      error: this.props.errors.name,
+      error: '',
     });
-    this.setProps({ formState: { ...this.props.formState, [name]: value } });
+    this.setProps({ formState: { ...this.props.formState, [field]: value } });
+  }
+
+  private setErrorMsg({ elementName, errorMessage }: { elementName: string, errorMessage: string }) {
+    this.children[elementName].setProps({
+      error: errorMessage,
+    });
+  }
+
+  private validateAllFields() {
+    if (!isValidEmail(this.props.formState.email)) {
+      this.setErrorMsg({ elementName: 'InputEmail', errorMessage: ErrorMessages.EMAIL_ERROR });
+    }
+
+    if (!isValidLogin(this.props.formState.login)) {
+      this.setErrorMsg({ elementName: 'InputLogin', errorMessage: ErrorMessages.LOGIN_ERROR });
+    }
+
+    if (!isValidPassword(this.props.formState.password)) {
+      this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
+    }
+
+    if (!isValidPhone(this.props.formState.phone)) {
+      this.setErrorMsg({ elementName: 'InputPhone', errorMessage: ErrorMessages.PHONE_ERROR });
+    }
+
+    if (!isValidName(this.props.formState.first_name)) {
+      this.setErrorMsg({ elementName: 'InputFirstName', errorMessage: ErrorMessages.FIRST_NAME_ERROR });
+    }
+
+    if (!isValidName(this.props.formState.second_name)) {
+      this.setErrorMsg({ elementName: 'InputSecondName', errorMessage: ErrorMessages.SECOND_NAME_ERROR });
+    }
+
+    if (this.props.formState.password !== this.props.formState.repeat_password) {
+      this.setErrorMsg({ elementName: 'InputRepeatPassword', errorMessage: ErrorMessages.REPEAT_PASSWORD_ERROR });
+    }
   }
 
   render(): string {

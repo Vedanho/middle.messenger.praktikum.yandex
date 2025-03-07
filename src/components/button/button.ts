@@ -5,11 +5,12 @@ interface ButtonProps {
   label?: string;
   isIcon?: boolean;
   iconSrc?: string;
-  iconWidth?: number;
-  iconHeight?: number;
+  iconWidth?: string;
+  iconHeight?: string;
   type?: string;
   altText?: string;
   variant?: string;
+  buttonClassName?: string;
 }
 
 export default class Button extends Block {
@@ -19,6 +20,7 @@ export default class Button extends Block {
       label,
       variant,
       onClick,
+      buttonClassName = 'button_default',
     } = props;
 
     super('button', {
@@ -28,7 +30,7 @@ export default class Button extends Block {
       },
       label,
     }, {
-      className: `button${variant ? ` button_${variant}` : ''}`,
+      className: `button${variant ? ` button_${variant}` : ''} ${buttonClassName}`,
       attrs: {
         type: type || '',
       },
