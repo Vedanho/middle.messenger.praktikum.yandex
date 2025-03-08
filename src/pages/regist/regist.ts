@@ -189,7 +189,7 @@ export default class Regist extends Block<RegistProps> {
         onClick: (event) => {
           event.preventDefault();
           this.validateAllFields();
-
+          // eslint-disable-next-line no-console
           console.log(this.props.formState);
         },
       }),

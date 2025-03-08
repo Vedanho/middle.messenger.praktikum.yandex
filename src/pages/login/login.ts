@@ -75,7 +75,7 @@ export default class Login extends Block<LoginProps> {
           if (!isValidPassword(this.props.formState.password)) {
             this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
           }
-
+          // eslint-disable-next-line no-console
           console.log(this.props.formState);
         },
       }),

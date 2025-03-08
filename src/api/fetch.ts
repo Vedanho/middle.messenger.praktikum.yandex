@@ -68,6 +68,7 @@ export class HTTPTransport {
         xhr.setRequestHeader(key, headers[key]);
       });
 
+      // eslint-disable-next-line func-names
       xhr.onload = function () {
         resolve(xhr);
       };

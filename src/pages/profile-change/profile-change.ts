@@ -41,7 +41,7 @@ export default class ProfileChangePage extends Block<ProfileChangePageProps> {
         type: 'submit',
         onClick: (event) => {
           event.preventDefault();
-
+          // eslint-disable-next-line no-console
           console.log(this.props.formState);
         },
       }),

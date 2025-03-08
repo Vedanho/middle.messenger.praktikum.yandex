@@ -60,7 +60,7 @@ export default class ChatMessages extends Block {
             });
             return;
           }
-
+          // eslint-disable-next-line no-console
           console.log(this.props.message);
         },
       }),
