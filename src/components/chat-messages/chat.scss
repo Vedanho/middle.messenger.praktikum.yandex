@@ -1,4 +1,4 @@
-@import "../../styles//mixins.scss";
+@use "../../styles/mixins.scss" as *;
 
 .chat {
   &__container {
@@ -63,7 +63,7 @@
   }
 
   &__message-wrapper {
-    @include flex();
+    @include flex;
 
     margin-top: 30px;
 
@@ -82,12 +82,12 @@
     @include text-xs;
 
     padding: 11px;
-    border-radius: 0 11px 11px 11px;
+    border-radius: 0 11px 11px;
     background-color: var(--color-ghost);
 
     &_user {
       background-color: var(--color-light-blue);
-      border-radius: 11px 11px 0 11px;
+      border-radius: 11px 11px 0;
     }
   }
 

@@ -1,126 +1,124 @@
-export const MESSAGES = [
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2,
-        active: true,
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-    {
-        author: "Badruddi",
-        message: "Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element",
-        date: "10:49",
-        messagesCount: 2
-    },
-]
+import { Chat } from './types';
 
-export const PROFILE_INFO = [
-    {
-        keyName: "Почта",
-        value: "pochta@yandex.ru",
-        name: "email"
-    },
-    {
-        keyName: "Логин",
-        value: "ivanivanov",
-        name: "login"
-    },
-    {
-        keyName: "Имя",
-        value: "Иван",
-        name: "first_name"
-    },
-    {
-        keyName: "Фамилия",
-        value: "Иванов",
-        name: "second_name"
-    },
-    {
-        keyName: "Имя в чате",
-        value: "Иван",
-        name: "display_name"
-    },
-    {
-        keyName: "Телефон",
-        value: "+7 (909) 967 30 30",
-        name: "phone"
-    }
-]
+export const Chats: Chat[] = [
+  {
+    id: 1,
+    author: 'Sam',
+    firstUserMessage: 'Привет, проверка связи! Как дела?',
+    secondUserMessage: 'Все хорошо',
+    date: '09:10',
+    messagesCount: 1,
+  },
+  {
+    id: 2,
+    author: 'Kate',
+    firstUserMessage: 'Встречаемся вечером в центре. Вы во сколько сможете?',
+    secondUserMessage: 'Я буду в 7, подходит?',
+    date: '08:20',
+    messagesCount: 2,
+  },
+  {
+    id: 3,
+    author: 'Badruddi',
+    firstUserMessage: 'Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element',
+    secondUserMessage: 'Интересно, расскажи подробнее.',
+    date: '11:15',
+    messagesCount: 4,
+  },
+  {
+    id: 4,
+    author: 'Noor',
+    firstUserMessage: 'Можно будет созвониться после обеда?',
+    secondUserMessage: 'Да, давай в 14:00.',
+    date: '12:40',
+    messagesCount: 1,
+  },
+  {
+    id: 5,
+    author: 'Amir',
+    firstUserMessage: 'Отправил тебе документ. Проверь почту',
+    secondUserMessage: 'Уже смотрю, спасибо.',
+    date: '09:49',
+    messagesCount: 2,
+  },
+  {
+    id: 6,
+    author: 'Nina',
+    firstUserMessage: 'Уже еду, буду через 10 минут',
+    secondUserMessage: 'Ок, жду тебя.',
+    date: '10:32',
+    messagesCount: 3,
+  },
+  {
+    id: 7,
+    author: 'Artem',
+    firstUserMessage: 'Завтра выходной, какие планы?',
+    secondUserMessage: 'Думаю сходить на прогулку.',
+    date: '15:05',
+    messagesCount: 2,
+  },
+  {
+    id: 8,
+    author: 'Kim',
+    firstUserMessage: 'Скинь ссылку на презентацию в чат',
+    secondUserMessage: 'Секунду, сейчас найду.',
+    date: '18:20',
+    messagesCount: 1,
+  },
+  {
+    id: 9,
+    author: 'Larissa',
+    firstUserMessage: 'Присоединяйтесь к проекту, как только освободитесь',
+    secondUserMessage: 'Хорошо, в ближайшее время подключусь.',
+    date: '14:10',
+    messagesCount: 5,
+  },
+  {
+    id: 10,
+    author: 'John',
+    firstUserMessage: 'Слушал подкаст — очень интересная тема',
+    secondUserMessage: 'Да, тоже недавно слышал.',
+    date: '19:03',
+    messagesCount: 1,
+  },
+  {
+    id: 11,
+    author: 'Badruddi',
+    firstUserMessage: 'Можно перенести встречу на полчаса позже?',
+    secondUserMessage: 'Да, не проблема.',
+    date: '07:55',
+    messagesCount: 2,
+  },
+  {
+    id: 12,
+    author: 'Sasha',
+    firstUserMessage: 'Не забудь про дедлайн завтра!',
+    secondUserMessage: 'Конечно, держу в уме.',
+    date: '09:50',
+    messagesCount: 1,
+  },
+  {
+    id: 13,
+    author: 'Mia',
+    firstUserMessage: 'Пришлите, пожалуйста, список покупок заранее',
+    secondUserMessage: 'Сейчас составлю и отправлю.',
+    date: '17:25',
+    messagesCount: 2,
+  },
+  {
+    id: 14,
+    author: 'Tim',
+    firstUserMessage: 'Готов обсудить детали проекта, когда удобно?',
+    secondUserMessage: 'В любое время после 16:00.',
+    date: '21:00',
+    messagesCount: 2,
+  },
+  {
+    id: 15,
+    author: 'Carol',
+    firstUserMessage: 'Увидимся на следующей неделе!',
+    secondUserMessage: 'Отлично, хороших выходных!',
+    date: '22:10',
+    messagesCount: 3,
+  },
+];

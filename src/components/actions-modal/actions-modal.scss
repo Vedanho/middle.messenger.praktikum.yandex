@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@use "../../styles/mixins" as *;
 
 .actions-modal {
   @include flex(start, start, column, 16px);
@@ -6,7 +6,7 @@
   padding: 15px;
   background-color: var(--color-white);
   border-radius: 12px;
-  box-shadow: 0px 0px 6px 0px #00000024;
+  box-shadow: 0 0 6px 0 #00000024;
   position: absolute;
 
   .button {

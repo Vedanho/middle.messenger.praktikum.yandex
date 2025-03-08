@@ -1,5 +1,15 @@
+@use "../../styles/mixins.scss" as *;
+
 .chat-page {
   height: 100%;
   display: grid;
   grid-template-columns: 310px 1fr;
+}
+
+.no-chat {
+    @include flex(center, center);  
+
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
 }

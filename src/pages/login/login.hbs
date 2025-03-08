@@ -1,12 +1,10 @@
-<main class="page">
-  {{#> AuthContainer title="Вход"}}
-    <form class="login-form">
-      {{> Input label="Логин" inputName="login" type="text" isNeedLabel=true variant="underline"}}
-      {{> Input label="Пароль" inputName="password" type="password" isNeedLabel=true variant="underline"}}
-      <div class="login-form__buttons">
-        {{> Button label="Вход" type="primary"}}
-        {{> Button label="Нет аккаунта?" type="transparent"}}
-      </div>
-    </form>
-  {{/AuthContainer}}
-</main>
+{{#> AuthContainer title="Вход"}}
+  <form class="login-form">
+    {{{InputLogin}}}
+    {{{InputPassword}}}
+    <div class="login-form__buttons">
+      {{{ButtonSubmit}}}
+      {{{ButtonRegist}}}
+    </div>
+  </form>
+{{/AuthContainer}}

@@ -1,0 +1,33 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "max-len": [2, 150],
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "max-classes-per-file": ["error", 2],
+    "no-shadow": "off",
+    "new-cap": ["error", { "newIsCapExceptions": ["source"] }],
+    "class-methods-use-this": ["error", { "exceptMethods": ["request", "render"] }],
+    "no-param-reassign": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".jsx", ".tsx", ".hbs"]
+      }
+    }
+  }
+}
