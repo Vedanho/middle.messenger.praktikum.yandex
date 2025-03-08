@@ -29,8 +29,12 @@ enum ErrorMessages {
   EMAIL_ERROR = 'Недопустимый email',
 }
 
-export default class Regist extends Block {
-  constructor(props: Record<string, unknown>) {
+type RegistProps = {
+  formState: FormState;
+}
+
+export default class Regist extends Block<RegistProps> {
+  constructor(props: RegistProps) {
     super('main', {
       ...props,
       formState: {

@@ -9,28 +9,28 @@ interface DialogProps {
 class DialogBody extends Block {
   constructor() {
     super('div', {
-      UserAddInput: new InputField({
-        isNeedLabel: true,
-        label: 'Логин',
-        inputName: 'login',
-        type: 'text',
-        variant: 'underline',
+      FileChangeInput: new InputField({
+        type: 'file',
+        inputName: 'file',
       }),
+    }, {
+      className: 'upload-file',
     });
   }
 
   render(): string {
-    return '{{{UserAddInput}}}';
+    return `{{{FileChangeInput}}}
+            <label for="file" class="upload-file__text">Выбрать файл на компьютере</label>`;
   }
 }
 
-export default class UserAddModal extends Block {
+export default class AvatarDownloadModal extends Block {
   constructor(props: DialogProps) {
     super('div', {
       ...props,
       Dialog: new Dialog({
-        title: 'Добавить пользователя',
-        buttonLabel: 'Добавить',
+        title: 'Загрузить файл',
+        buttonLabel: 'Поменять',
         submitOnClick: props.onClick,
         Body: new DialogBody(),
       }),

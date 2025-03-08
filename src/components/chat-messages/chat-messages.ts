@@ -1,15 +1,16 @@
 import Block from '../../core/block';
+import { Chat } from '../../types';
 import { Button } from '../button';
 import { InputField } from '../input';
 import { UserAddModal } from '../user-add-modal';
+import template from './chat-messages.hbs?raw';
 
-interface ChatsListProps {
-  messages: unknown[];
-  activeChat: any,
-  setActiveChat: (chat: unknown) => void;
+interface ChatMessagesProps {
+  activeChat: Chat
 }
+
 export default class ChatMessages extends Block {
-  constructor(props: ChatsListProps) {
+  constructor(props: ChatMessagesProps) {
     const { author } = props?.activeChat || {};
 
     super('section', {
@@ -19,7 +20,7 @@ export default class ChatMessages extends Block {
       ActionsButton: new Button({
         variant: 'rounded',
         label: '⋮',
-        onClick: () => this.setProps({ isShowActions: true })
+        onClick: () => this.setProps({ isShowActions: true }),
       }),
       AttachmentsButton: new Button({
         buttonClassName: 'chat-form__attach-button',
@@ -28,7 +29,7 @@ export default class ChatMessages extends Block {
         iconWidth: '32',
         iconHeight: '32',
         onClick: () => this.setProps({ isShowAttach: true }),
-        type: 'button'
+        type: 'button',
       }),
       MessageInput: new InputField({
         type: 'text',
@@ -61,16 +62,16 @@ export default class ChatMessages extends Block {
           }
 
           console.log(this.props.message);
-        }
+        },
       }),
       UserAddModal: new UserAddModal({
-        onClick: () => this.setProps({ isShowModal: false })
+        onClick: () => this.setProps({ isShowModal: false }),
       }),
       ModalTriggerButton: new Button({
         isIcon: true,
         iconSrc: '../../../add-icon.svg',
         label: 'Добавить пользователя',
-        onClick: () => this.setProps({ isShowModal: true })
+        onClick: () => this.setProps({ isShowModal: true }),
       }),
       UserDeleteButton: new Button({
         buttonClassName: 'clear-button',
@@ -99,71 +100,6 @@ export default class ChatMessages extends Block {
   }
 
   render(): string {
-    return `
-     {{#if isShowModal}}
-      {{{UserAddModal}}}
-    {{/if}}
-
-  <div class="chat__container">
-    <div class="chat-header">
-      <div class="chat-header__avatar"></div>
-      <h1 class="chat-header__author">{{author}}</h1>
-
-      <div class="chat-header__button-wrapper">
-        {{{ActionsButton}}}
-        {{#if isShowActions}}
-       {{#> ActionsModal}}
-         {{{ModalTriggerButton}}}
-          {{{UserDeleteButton}}}
-        {{/ActionsModal}}
-      {{/if}}
-      </div>
-    </div>
-
-    <div class="chat-messages">
-      <div class="chat-messages__correspondence">
-        <div class="chat-messages__date">{{date}}</div>
-
-        <div class="chat-messages__message-wrapper">
-          <div class="chat-messages__message-content">
-            <div class="chat-messages__message-text">
-              <span>
-              {{firstUserMessage}}
-              </span>
-              <span class="chat-messages__time">11:56</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat-messages__message-wrapper chat-messages__message-wrapper_user">
-          <div class="chat-messages__message-content">
-            <div class="chat-messages__message-text chat-messages__message-text_user">
-              <span>{{secondUserMessage}}</span>
-              <img src="../../../checked-icon.svg" alt="checked" />
-              <span class="chat-messages__time chat-messages__time_user">11:56</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chat-form-wrapper">
-      <form class="chat-form">
-        <div class="chat-form__attach-wrapper">
-          {{{AttachmentsButton}}}
-          {{#if isShowAttach}}
-          {{#> ActionsModal}}
-            {{{PhotoButton}}}
-            {{{FileButton}}}
-            {{{LocationButton}}}
-          {{/ActionsModal}} 
-          {{/if}}
-        </div>
-        {{{MessageInput}}}
-        {{{SubmitButton}}}
-      </form>
-    </div>
-  </div>
-`;
+    return template;
   }
 }

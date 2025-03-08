@@ -1,6 +1,8 @@
-export const MESSAGES = [
+import { Chat } from './types';
+
+export const Chats: Chat[] = [
   {
-    id: 0,
+    id: 1,
     author: 'Sam',
     firstUserMessage: 'Привет, проверка связи! Как дела?',
     secondUserMessage: 'Все хорошо',
@@ -8,7 +10,7 @@ export const MESSAGES = [
     messagesCount: 1,
   },
   {
-    id: 1,
+    id: 2,
     author: 'Kate',
     firstUserMessage: 'Встречаемся вечером в центре. Вы во сколько сможете?',
     secondUserMessage: 'Я буду в 7, подходит?',
@@ -16,7 +18,7 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 2,
+    id: 3,
     author: 'Badruddi',
     firstUserMessage: 'Lorem ipsum dolor sit amet, consectetur adip e ea commodo er element',
     secondUserMessage: 'Интересно, расскажи подробнее.',
@@ -24,7 +26,7 @@ export const MESSAGES = [
     messagesCount: 4,
   },
   {
-    id: 3,
+    id: 4,
     author: 'Noor',
     firstUserMessage: 'Можно будет созвониться после обеда?',
     secondUserMessage: 'Да, давай в 14:00.',
@@ -32,7 +34,7 @@ export const MESSAGES = [
     messagesCount: 1,
   },
   {
-    id: 4,
+    id: 5,
     author: 'Amir',
     firstUserMessage: 'Отправил тебе документ. Проверь почту',
     secondUserMessage: 'Уже смотрю, спасибо.',
@@ -40,7 +42,7 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 5,
+    id: 6,
     author: 'Nina',
     firstUserMessage: 'Уже еду, буду через 10 минут',
     secondUserMessage: 'Ок, жду тебя.',
@@ -48,7 +50,7 @@ export const MESSAGES = [
     messagesCount: 3,
   },
   {
-    id: 6,
+    id: 7,
     author: 'Artem',
     firstUserMessage: 'Завтра выходной, какие планы?',
     secondUserMessage: 'Думаю сходить на прогулку.',
@@ -56,7 +58,7 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 7,
+    id: 8,
     author: 'Kim',
     firstUserMessage: 'Скинь ссылку на презентацию в чат',
     secondUserMessage: 'Секунду, сейчас найду.',
@@ -64,7 +66,7 @@ export const MESSAGES = [
     messagesCount: 1,
   },
   {
-    id: 8,
+    id: 9,
     author: 'Larissa',
     firstUserMessage: 'Присоединяйтесь к проекту, как только освободитесь',
     secondUserMessage: 'Хорошо, в ближайшее время подключусь.',
@@ -72,7 +74,7 @@ export const MESSAGES = [
     messagesCount: 5,
   },
   {
-    id: 9,
+    id: 10,
     author: 'John',
     firstUserMessage: 'Слушал подкаст — очень интересная тема',
     secondUserMessage: 'Да, тоже недавно слышал.',
@@ -80,7 +82,7 @@ export const MESSAGES = [
     messagesCount: 1,
   },
   {
-    id: 10,
+    id: 11,
     author: 'Badruddi',
     firstUserMessage: 'Можно перенести встречу на полчаса позже?',
     secondUserMessage: 'Да, не проблема.',
@@ -88,7 +90,7 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 11,
+    id: 12,
     author: 'Sasha',
     firstUserMessage: 'Не забудь про дедлайн завтра!',
     secondUserMessage: 'Конечно, держу в уме.',
@@ -96,7 +98,7 @@ export const MESSAGES = [
     messagesCount: 1,
   },
   {
-    id: 12,
+    id: 13,
     author: 'Mia',
     firstUserMessage: 'Пришлите, пожалуйста, список покупок заранее',
     secondUserMessage: 'Сейчас составлю и отправлю.',
@@ -104,7 +106,7 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 13,
+    id: 14,
     author: 'Tim',
     firstUserMessage: 'Готов обсудить детали проекта, когда удобно?',
     secondUserMessage: 'В любое время после 16:00.',
@@ -112,44 +114,11 @@ export const MESSAGES = [
     messagesCount: 2,
   },
   {
-    id: 14,
+    id: 15,
     author: 'Carol',
     firstUserMessage: 'Увидимся на следующей неделе!',
     secondUserMessage: 'Отлично, хороших выходных!',
     date: '22:10',
     messagesCount: 3,
-  },
-];
-
-export const PROFILE_INFO = [
-  {
-    keyName: 'Почта',
-    value: 'pochta@yandex.ru',
-    name: 'email',
-  },
-  {
-    keyName: 'Логин',
-    value: 'ivanivanov',
-    name: 'login',
-  },
-  {
-    keyName: 'Имя',
-    value: 'Иван',
-    name: 'first_name',
-  },
-  {
-    keyName: 'Фамилия',
-    value: 'Иванов',
-    name: 'second_name',
-  },
-  {
-    keyName: 'Имя в чате',
-    value: 'Иван',
-    name: 'display_name',
-  },
-  {
-    keyName: 'Телефон',
-    value: '+7 (909) 967 30 30',
-    name: 'phone',
   },
 ];

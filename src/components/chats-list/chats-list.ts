@@ -2,13 +2,15 @@ import template from './chats-list.hbs?raw';
 import Block from '../../core/block';
 import ChatComponent from '../chat-component/chat-component';
 import InputFiled from '../input/inputField';
+import { Chat } from '../../types';
 
-interface ChatsListProps {
-  messages: unknown[];
+type ChatsListProps = {
+  chats: Chat[];
   setActiveChat: (chat: unknown) => void;
+  activeChat?: Chat;
 }
 
-export default class ChatsList extends Block {
+export default class ChatsList extends Block<ChatsListProps> {
   constructor(props: ChatsListProps) {
     super('div', {
       ...props,
@@ -18,7 +20,7 @@ export default class ChatsList extends Block {
         icon: '../../../search-icon.svg',
         placeholder: 'Поиск',
       }),
-      chatComponents: props.messages.map((chat) => (
+      chatComponents: props.chats.map((chat) => (
         new ChatComponent({
           ...chat,
           onClick: () => {
@@ -33,7 +35,7 @@ export default class ChatsList extends Block {
   }
 
   render(): string {
-    const { chatComponents } = this.children;
+    const chatComponents = this.children.chatComponents as unknown as Block[];
 
     chatComponents.forEach((chat) => {
       if (chat?.props.id === this.props.activeChat?.id) {

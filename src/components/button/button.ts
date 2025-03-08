@@ -1,4 +1,5 @@
 import Block from '../../core/block';
+import template from './button.hbs?raw';
 
 interface ButtonProps {
   onClick?: (event: MouseEvent) => void;
@@ -38,15 +39,6 @@ export default class Button extends Block {
   }
 
   render() {
-    return `
-      {{#if isIcon}}
-        <img src="{{iconSrc}}"
-         alt="{{altText}}" 
-         class="button__icon" 
-         width="{{iconWidth}}px" 
-         height="{{iconHeight}}px" />
-      {{/if}}
-     {{#if label}}<span>{{label}}</span>{{/if}}
-    `;
+    return template;
   }
 }

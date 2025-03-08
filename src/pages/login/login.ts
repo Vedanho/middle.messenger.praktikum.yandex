@@ -13,8 +13,12 @@ enum ErrorMessages {
   PASSWORD_ERROR = 'Неправильный пароль',
 }
 
-export default class Login extends Block {
-  constructor(props) {
+type LoginProps = {
+  formState: FormState;
+}
+
+export default class Login extends Block<LoginProps> {
+  constructor(props: LoginProps) {
     super('main', {
       ...props,
       formState: {

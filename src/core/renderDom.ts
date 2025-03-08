@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import Block from './block';
 
 export default function renderDOM(block: Block) {

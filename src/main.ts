@@ -2,32 +2,23 @@ import Handlebars from 'handlebars';
 import './styles/main.scss';
 import * as Pages from './pages';
 import * as Components from './components';
-import { MESSAGES, PROFILE_INFO } from './constants';
+import { Chats } from './constants';
 import renderDOM from './core/renderDom';
 
 const pages = {
   login: [Pages.LoginPage],
   regist: [Pages.RegistPage],
   chat: [Pages.ChatPage, {
-    messages: MESSAGES,
+    chats: Chats,
     isShowModal: false,
   }],
   'chat-modal': [Pages.ChatPage, {
-    messages: MESSAGES,
+    chats: Chats,
     isShowModal: true,
   }],
-  profile: [Pages.ProfilePage, {
-    profileInfo: PROFILE_INFO,
-  }],
-  'profile-change': [Pages.ProfileChangePage, {
-    profileInfo: PROFILE_INFO,
-    isChangeProfile: true,
-  }],
+  profile: [Pages.ProfilePage],
   'change-password': [Pages.PasswordChangePage],
-  'profile-modal': [Pages.ProfilePage, {
-    profileInfo: PROFILE_INFO,
-    isShowModal: true,
-  }],
+  'profile-modal': [Pages.ProfilePage],
   'not-found': [Pages.NotFoundPage],
   'error-page': [Pages.ErrorPage],
 };
@@ -35,7 +26,7 @@ const pages = {
 const pathName = window.location.pathname.replace('/', '');
 
 Object.entries(Components).forEach(([name, template]) => {
-  if (template === 'function') {
+  if (typeof template === 'function') {
     return;
   }
 

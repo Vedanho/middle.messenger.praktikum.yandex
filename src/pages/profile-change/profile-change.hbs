@@ -1,14 +1,37 @@
-<main class="profile-page">
-  {{> NavBack}}
-  <section class="data-wrapper">
-    <form class="profile-form">
-      <div class="profile-data">
-        {{> ProfileAvatar}}
-        {{> ProfileInfo profileInfo=profileInfo isChangeProfile=isChangeProfile}}
+{{{NavBack}}}
+<section class="data-wrapper">
+  <form class="profile-form">
+    <div class="profile-data">
+      {{{ProfileAvatar}}}
+      <div class="profile-info">
+        <div class="profile-info__item">
+          <span class="profile-info__name">Почта</span>
+          <span class="profile-info__value">{{{InputEmail}}}</span>
+        </div>
+        <div class="profile-info__item">
+          <span class="profile-info__name">Логин</span>
+          <span class="profile-info__value">{{{InputLogin}}}</span>
+        </div>
+        <div class="profile-info__item">
+          <span class="profile-info__name">Имя</span>
+          <span class="profile-info__value">{{{InputName}}}</span>
+        </div>
+        <div class="profile-info__item">
+          <span class="profile-info__name">Фамилия</span>
+          <span class="profile-info__value">{{{InputSecondName}}}</span>
+        </div>
+        <div class="profile-info__item">
+          <span class="profile-info__name">Имя в чате</span>
+          <span class="profile-info__value">{{{InputDisplayName}}}</span>
+        </div>
+        <div class="profile-info__item">
+          <span class="profile-info__name">Телефон</span>
+          <span class="profile-info__value">{{{InputPhone}}}</span>
+        </div>
       </div>
-      <div class="profile-actions">
-        {{> Button className="profile-actions__save-changes-btn" label="Сохранить" type="primary"}}
-      </div>
-    </form>
-  </section>
-</main>
+    </div>
+    <div class="profile-actions">
+      {{{SubmitButton}}}
+    </div>
+  </form>
+</section>

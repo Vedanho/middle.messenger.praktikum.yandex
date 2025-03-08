@@ -1,12 +1,18 @@
 @use "../../styles/mixins" as *;
 
 .profile-avatar {
-  text-align: center;
+    @include flex(center, center, column);
 
-  &__name {
-    @include text-md;
+    text-align: center;
 
-    margin-top: 21px;
-    margin-bottom: 0;
-  }
+    &__name {
+        @include text-md;
+
+        margin-top: 21px;
+        margin-bottom: 0;
+    }
+}
+
+.profile-avatar__button {
+    max-width: 130px;
 }

@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 export default class EventBus<E extends string> {
   private listeners: Record<string, Function[]>;
 

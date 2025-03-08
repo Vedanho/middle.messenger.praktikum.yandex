@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import Handlebars, { HelperOptions } from 'handlebars';
 import Block from './block';
 

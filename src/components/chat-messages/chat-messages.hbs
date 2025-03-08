@@ -1,66 +1,64 @@
-  {{!-- {{#if isShowModal}}
-    {{#> Dialog title="Добавить пользователя" buttonLabel="Добавить"}}
-      {{> Input isNeedLabel=true label="Логин" inputName="login" type="text" variant="underline"}}
-    {{/Dialog}}
-  {{/if}} --}}
+{{#if isShowModal}}
+  {{{UserAddModal}}}
+{{/if}}
 
-  <div class="chat__container">
-    <div class="chat-header">
-      <div class="chat-header__avatar"></div>
-      <h1 class="chat-header__author">{{this.props.activeChat.author}}</h1>
+<div class="chat__container">
+  <div class="chat-header">
+    <div class="chat-header__avatar"></div>
+    <h1 class="chat-header__author">{{author}}</h1>
 
-      <div class="chat-header__button-wrapper">
-        {{!-- {{> Button type="rounded" label="⋮"}} --}}
-        {{!-- {{#> ActionsModal}}
-          {{> Button isIcon=true iconSrc="../../../add-icon.svg" label="Добавить пользователя"}}
-          {{> Button className="clear-button" isIcon=true iconSrc="../../../add-icon.svg" label="Удалить пользователя"}}
-        {{/ActionsModal}} --}}
-      </div>
-    </div>
-
-    <div class="chat-messages">
-      <div class="chat-messages__correspondence">
-        <div class="chat-messages__date">19 июня</div>
-
-        <div class="chat-messages__message-wrapper">
-          <div class="chat-messages__message-content">
-            <div class="chat-messages__message-text">
-              <span>
-                Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент
-                попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты
-                летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны,
-                так как астронавты с собой забрали только кассеты с пленкой.
-              </span>
-              <span class="chat-messages__time">11:56</span>
-            </div>
-            <img src="../../../chat-img.png" alt="chat-image" width="316" height="211" />
-          </div>
-        </div>
-
-        <div class="chat-messages__message-wrapper chat-messages__message-wrapper_user">
-          <div class="chat-messages__message-content">
-            <div class="chat-messages__message-text chat-messages__message-text_user">
-              <span>Круто</span>
-              <img src="../../../checked-icon.svg" alt="checked" />
-              <span class="chat-messages__time chat-messages__time_user">11:56</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chat-form-wrapper">
-      <form class="chat-form">
-        <div class="chat-form__attach-wrapper">
-          {{!-- {{> Button className="chat-form__attach-button" isIcon=true iconSrc="../../../attachment-icon.svg" iconWidth="32" iconHeight="32"}} --}}
-          {{!-- {{#> ActionsModal}}
-            {{> Button isIcon=true iconSrc="../../../photo-icon.svg" label="Фото или Видео"}}
-            {{> Button isIcon=true iconSrc="../../../file-icon.svg" label="Файл"}}
-            {{> Button isIcon=true iconSrc="../../../location-icon.svg" label="Локация"}}
-          {{/ActionsModal}} --}}
-        </div>
-        {{!-- {{> Input type="text" placeholder="Сообщение" variant="grey"}} --}}
-        {{!-- {{> Button className="arrow-button" type="rounded" isIcon=true iconWidth="28" iconHeight="28" iconSrc="../../../arrow.svg"}} --}}
-      </form>
+    <div class="chat-header__button-wrapper">
+      {{{ActionsButton}}}
+      {{#if isShowActions}}
+        {{#> ActionsModal}}
+          {{{ModalTriggerButton}}}
+          {{{UserDeleteButton}}}
+        {{/ActionsModal}}
+      {{/if}}
     </div>
   </div>
+
+  <div class="chat-messages">
+    <div class="chat-messages__correspondence">
+      <div class="chat-messages__date">{{date}}</div>
+
+      <div class="chat-messages__message-wrapper">
+        <div class="chat-messages__message-content">
+          <div class="chat-messages__message-text">
+            <span>
+              {{firstUserMessage}}
+            </span>
+            <span class="chat-messages__time">11:56</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-messages__message-wrapper chat-messages__message-wrapper_user">
+        <div class="chat-messages__message-content">
+          <div class="chat-messages__message-text chat-messages__message-text_user">
+            <span>{{secondUserMessage}}</span>
+            <img src="../../../checked-icon.svg" alt="checked" />
+            <span class="chat-messages__time chat-messages__time_user">11:56</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-form-wrapper">
+    <form class="chat-form">
+      <div class="chat-form__attach-wrapper">
+        {{{AttachmentsButton}}}
+        {{#if isShowAttach}}
+          {{#> ActionsModal}}
+            {{{PhotoButton}}}
+            {{{FileButton}}}
+            {{{LocationButton}}}
+          {{/ActionsModal}}
+        {{/if}}
+      </div>
+      {{{MessageInput}}}
+      {{{SubmitButton}}}
+    </form>
+  </div>
+</div>

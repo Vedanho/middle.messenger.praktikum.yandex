@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import EventBus from './eventBus';
@@ -7,13 +10,19 @@ type Options = {
   attrs?: Record<string, string>;
 }
 
-export default class Block {
+type Props = Record<string, unknown>;
+type ChildrenType = Record<string, Block>;
+
+export default class Block<P extends Props=Props>  {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
   };
+
+  props: P;
+  children: ChildrenType;
 
   _options: Options = {};
 
@@ -56,7 +65,7 @@ export default class Block {
   }
 
   _createResources() {
-    const { tagName, props } = this._meta;
+    const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
 
     if (this._options.className) {

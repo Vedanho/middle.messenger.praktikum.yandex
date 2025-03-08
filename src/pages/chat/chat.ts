@@ -1,13 +1,18 @@
 import Block from '../../core/block';
-import { MESSAGES } from '../../constants';
+import { Chats } from '../../constants';
 import { ChatMessages, ChatsList } from '../../components';
+import { Chat as ChatType } from '../../types.ts';
 
-export default class Chat extends Block {
-  constructor(props: unknown) {
+type ChatProps = {
+  activeChat: ChatType;
+}
+
+export default class Chat extends Block<ChatProps> {
+  constructor(props: ChatProps) {
     super('main', {
       activeChat: {},
       ChatsList: new ChatsList({
-        messages: MESSAGES,
+        chats: Chats,
         setActiveChat: (chat) => {
           this.setProps({ activeChat: chat });
         },
@@ -35,9 +40,15 @@ export default class Chat extends Block {
         date,
       });
     }
+
     return `
-    {{{ ChatsList}}}
-     {{{ ChatMessages }}}
+     {{{ ChatsList}}}
+      {{#if ${this.props.activeChat?.id} }}
+      {{{ ChatMessages }}}
+       {{/if}}
+        {{#if ${!this.props.activeChat?.id} }}
+          <div class="no-chat">Выберите чат чтобы отправить сообщение</div>
+        {{/if}}
       `;
   }
 }
