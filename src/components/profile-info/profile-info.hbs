@@ -1,12 +1,24 @@
-<div class="profile-info">
-  {{#each profileInfo}}
-    <div class="profile-info__item">
-      <span class="profile-info__name">{{keyName}}</span>
-      {{#if ../isChangeProfile}}
-        {{> Input inputName=name type="text"}}
-      {{else}}
-        <span class="profile-info__value">{{value}}</span>
-      {{/if}}
-    </div>
-  {{/each}}
+<div class="profile-info__item">
+  <span class="profile-info__name">Почта</span>
+  <span class="profile-info__value">{{email}}</span>
+</div>
+<div class="profile-info__item">
+  <span class="profile-info__name">Логин</span>
+  <span class="profile-info__value">{{login}}</span>
+</div>
+<div class="profile-info__item">
+  <span class="profile-info__name">Имя</span>
+  <span class="profile-info__value">{{name}}</span>
+</div>
+<div class="profile-info__item">
+  <span class="profile-info__name">Фамилия</span>
+  <span class="profile-info__value">{{secondName}}</span>
+</div>
+<div class="profile-info__item">
+  <span class="profile-info__name">Имя в чате</span>
+  <span class="profile-info__value">{{displayName}}</span>
+</div>
+<div class="profile-info__item">
+  <span class="profile-info__name">Телефон</span>
+  <span class="profile-info__value">{{phone}}</span>
 </div>

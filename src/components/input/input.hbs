@@ -1,16 +1,10 @@
-<div class="input-wrapper">
-  {{#if icon}}
-    <img class="input-icon" src={{icon}} alt="input-icon" />
-  {{/if}}
-  <input 
-    type={{type}} 
-    id={{inputName}}
-    name={{inputName}} 
-    class="input {{#if variant}}input_{{variant}}{{/if}}" 
-    placeholder="{{#if placeholder}}{{placeholder}}{{/if}}" 
-    value="{{#if value}}{{value}}{{/if}}"
-  />
-  {{#if isNeedLabel}}
-    <label for="{{inputName}}">{{label}}</label>
-  {{/if}}
-</div>
+{{#if icon}}
+  <img class="input-icon" src={{icon}} alt="input-icon" />
+{{/if}}
+{{{Input}}}
+{{#if isNeedLabel}}
+  <label for="{{inputName}}">{{label}}</label>
+{{/if}}
+{{#if error}}
+  <p class="error-message">{{error}}</p>
+{{/if}}

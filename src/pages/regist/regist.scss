@@ -1,4 +1,4 @@
-@import "../../styles//mixins.scss";
+@use "../../styles/mixins.scss" as *;
 
 .regist-form {
   @include flex(flex-start, center, column);

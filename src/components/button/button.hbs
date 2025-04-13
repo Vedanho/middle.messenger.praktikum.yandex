@@ -1,6 +1,4 @@
-<button class="button{{#if type}} button_{{type}}{{/if}}{{#if className}} {{className}}{{/if}}">
-  {{#if isIcon}}
-    <img src="{{iconSrc}}" alt="{{altText}}" class="button__icon" width="{{iconWidth}}px" height="{{iconHeight}}px" />
-  {{/if}}
-  {{#if label}}<span>{{label}}</span>{{/if}}
-</button>
+{{#if isIcon}}
+  <img src="{{iconSrc}}" alt="{{altText}}" class="button__icon" width="{{iconWidth}}px" height="{{iconHeight}}px" />
+{{/if}}
+{{#if label}}<span>{{label}}</span>{{/if}}
