@@ -2,6 +2,7 @@ import template from './login.hbs?raw';
 import { Button, InputField } from '../../components';
 import Block from '../../core/block';
 import { isValidLogin, isValidPassword } from '../../utils/validation';
+import { connect } from '../../utils/connect';
 
 interface FormState {
   login: string;
@@ -17,7 +18,7 @@ type LoginProps = {
   formState: FormState;
 }
 
-export default class Login extends Block<LoginProps> {
+class Login extends Block<LoginProps> {
   constructor(props: LoginProps) {
     super('main', {
       ...props,
@@ -104,3 +105,11 @@ export default class Login extends Block<LoginProps> {
     );
   }
 }
+
+const mapStateToProps = (state: Record<string, unknown>) => ({
+  isLoading: state.isLoading,
+  loginError: state.loginError,
+  title: state.title,
+});
+
+export default connect(mapStateToProps)(Login);
