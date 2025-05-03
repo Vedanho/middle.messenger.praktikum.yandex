@@ -122,3 +122,5 @@ export const Chats: Chat[] = [
     messagesCount: 3,
   },
 ];
+
+export const PRIVATE_ROUTES = ['/messenger', '/settings'];

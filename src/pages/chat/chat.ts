@@ -1,22 +1,18 @@
 import Block from '../../core/block';
-import { Chats } from '../../constants';
 import { ChatMessages, ChatsList } from '../../components';
 import { Chat as ChatType } from '../../types.ts';
+import { getChats } from '../../services/chats.ts';
+import { connect } from '../../utils/connect.ts';
 
 type ChatProps = {
   activeChat: ChatType;
 }
 
-export default class Chat extends Block<ChatProps> {
+class Chat extends Block<ChatProps> {
   constructor(props: ChatProps) {
     super('main', {
       activeChat: {},
-      ChatsList: new ChatsList({
-        chats: Chats,
-        setActiveChat: (chat) => {
-          this.setProps({ activeChat: chat });
-        },
-      }),
+      ChatsList: new ChatsList({ chats: [] }),
       ChatMessages: new ChatMessages({ ...props }),
 
     }, {
@@ -25,30 +21,16 @@ export default class Chat extends Block<ChatProps> {
   }
 
   render() {
-    const { ChatsList, ChatMessages } = this.children;
-    const {
-      author, firstUserMessage, secondUserMessage, date,
-    } = this.props.activeChat;
-
-    if (this.props.activeChat) {
-      ChatsList.setProps({ activeChat: this.props.activeChat });
-      ChatMessages.setProps({
-        activeChat: this.props.activeChat,
-        author,
-        firstUserMessage,
-        secondUserMessage,
-        date,
-      });
-    }
+    getChats();
 
     return `
      {{{ ChatsList}}}
-      {{#if ${this.props.activeChat?.id} }}
-      {{{ ChatMessages }}}
-       {{/if}}
-        {{#if ${!this.props.activeChat?.id} }}
-          <div class="no-chat">Выберите чат чтобы отправить сообщение</div>
-        {{/if}}
-      `;
+     {{{ ChatMessages }}}
+            `;
   }
 }
+
+const mapStateToProps = (state: Record<string, unknown>) => ({
+});
+
+export default connect(mapStateToProps)(Chat);

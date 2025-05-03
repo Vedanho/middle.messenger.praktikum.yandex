@@ -1,7 +1,13 @@
+{{#if isShowChatModal}}
+  {{{ChatCreateModal}}}
+{{/if}}
 <div class="list-search">
   <div class="list-search__profile-link">
-    <span>Профиль</span>
-    <img src="../../../link-icon.svg" alt="icon">
+    {{{CreateNewChatButton}}}
+    <div class="list-search__link">
+      <span>Профиль</span>
+      <img src="../../../link-icon.svg" alt="icon">
+    </div>
   </div>
   {{{SearchInput}}}
 </div>

@@ -8,6 +8,9 @@
     {{{InputPassword}}}
     {{{InputRepeatPassword}}}
     <div class="regist-form__buttons">
+      {{#if signUpError}}
+        <p class="form-error">{{signUpError}}</p>
+      {{/if}}
       {{{ButtonSubmit}}}
       {{{ButtonRegist}}}
     </div>

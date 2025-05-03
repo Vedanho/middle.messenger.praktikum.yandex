@@ -12,3 +12,4 @@ export { Title } from './title';
 export { AuthContainer } from './auth-container';
 export { ActionsModal } from './actions-modal';
 export { ErrorContent } from './error';
+export { CreateChatModal } from './chat-create-modal';

@@ -1,5 +1,6 @@
 import Block from '../../core/block';
 import { Chat } from '../../types';
+import { connect } from '../../utils/connect';
 import { Button } from '../button';
 import { InputField } from '../input';
 import { UserAddModal } from '../user-add-modal';
@@ -9,7 +10,7 @@ interface ChatMessagesProps {
   activeChat: Chat
 }
 
-export default class ChatMessages extends Block {
+class ChatMessages extends Block {
   constructor(props: ChatMessagesProps) {
     const { author } = props?.activeChat || {};
 
@@ -103,3 +104,8 @@ export default class ChatMessages extends Block {
     return template;
   }
 }
+
+const mapStateToProps = (state: Record<string, unknown>) => ({
+  activeChat: state.activeChat,
+});
+export default connect(mapStateToProps)(ChatMessages);

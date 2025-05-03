@@ -39,5 +39,4 @@ class Route {
     this._block.componentDidMount();
   }
 }
-
 export default Route;

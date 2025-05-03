@@ -21,7 +21,10 @@
     "no-shadow": "off",
     "new-cap": ["error", { "newIsCapExceptions": ["source"] }],
     "class-methods-use-this": ["error", { "exceptMethods": ["request", "render"] }],
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "camelcase": ["error", { 
+      "allow": ["first_name", "second_name"]
+    }]
   },
   "settings": {
     "import/resolver": {

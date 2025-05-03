@@ -1,11 +1,11 @@
 <div class="chats-list__item {{#if active}}chats-list__item_active{{/if}}">
   <div class="chats-list__avatar "></div>
   <div class="chats-list__content">
-    <h2 class="chats-list__author">{{author}}</h2>
+    <h2 class="chats-list__author">{{created_by}}</h2>
     <div class="chats-list__text">{{secondUserMessage}}</div>
   </div>
   <div class="chats-list__info">
     <span class="chats-list__time">{{date}}</span>
-    <span class="chats-list__new-messages">{{messagesCount}}</span>
+    <span class="chats-list__new-messages">{{unread_count}}</span>
   </div>
 </div>

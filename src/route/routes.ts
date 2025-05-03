@@ -1,5 +1,7 @@
 export const ROUTES = {
-  login: '/login',
-  registration: '/regist',
-  profile: '/profile',
+  login: '/',
+  registration: '/sign-up',
+  profile: '/settings',
+  chat: '/messenger',
+  notFound: '*',
 };

@@ -3,6 +3,8 @@ import { Button, InputField } from '../../components';
 import Block from '../../core/block';
 import { isValidLogin, isValidPassword } from '../../utils/validation';
 import { connect } from '../../utils/connect';
+import { ROUTES } from '../../route/routes';
+import { signIn } from '../../services/auth';
 
 interface FormState {
   login: string;
@@ -67,20 +69,25 @@ class Login extends Block<LoginProps> {
         variant: 'primary',
         type: 'submit',
         onClick: (event) => {
+          const { login, password } = this.props.formState;
           event.preventDefault();
 
-          if (!isValidLogin(this.props.formState.login)) {
+          if (!isValidLogin(login)) {
             this.setErrorMsg({ elementName: 'InputLogin', errorMessage: ErrorMessages.LOGIN_ERROR });
           }
 
-          if (!isValidPassword(this.props.formState.password)) {
+          if (!isValidPassword(password)) {
             this.setErrorMsg({ elementName: 'InputPassword', errorMessage: ErrorMessages.PASSWORD_ERROR });
           }
-          // eslint-disable-next-line no-console
-          console.log(this.props.formState);
+
+          if (isValidLogin(login) && isValidPassword(password)) {
+            signIn({ login, password });
+          }
         },
       }),
-      ButtonRegist: new Button({ label: 'Нет аккаунта', variant: 'transparent', type: 'button' }),
+      ButtonRegist: new Button({
+        label: 'Нет аккаунта', variant: 'transparent', type: 'button', onClick: () => window.router.go(ROUTES.registration),
+      }),
     }, {
       className: 'page',
     });

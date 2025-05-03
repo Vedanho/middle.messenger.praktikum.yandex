@@ -19,6 +19,7 @@ export function connect(mapStateToProps) {
 
           // если что-то из используемых данных поменялось, обновляем компонент
           if (!isEqual(state, newState)) {
+            console.log(state)
             this.setProps({ ...newState });
           }
 

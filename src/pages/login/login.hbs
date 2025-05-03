@@ -3,6 +3,9 @@
     {{{InputLogin}}}
     {{{InputPassword}}}
     <div class="login-form__buttons">
+      {{#if loginError}}
+        <p class="form-error">{{loginError}}</p>
+      {{/if}}
       {{{ButtonSubmit}}}
       {{{ButtonRegist}}}
     </div>

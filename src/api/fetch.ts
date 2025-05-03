@@ -4,12 +4,12 @@ enum METHODS {
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
-type RequestData = XMLHttpRequestBodyInit;
+// type RequestData = XMLHttpRequestBodyInit;
 
-interface RequestOptions {
+interface RequestOptions<T = Record<string, unknown>> {
   headers?: Record<string, string>;
   method?: METHODS;
-  data?: RequestData;
+  data?: T;
   timeout?: number;
 }
 
@@ -33,21 +33,31 @@ export function queryStringify(data: XMLHttpRequestBodyInit): string {
 }
 
 export class HTTPTransport {
-  public get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => (
-    this.request(url, { ...options, method: METHODS.GET }, options.timeout));
+  private apiUrl: string = '';
 
-  public post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => (
-    this.request(url, { ...options, method: METHODS.POST }, options.timeout));
+  constructor(apiPath: string) {
+    this.apiUrl = `https://ya-praktikum.tech/api/v2/${apiPath}`;
+  }
 
-  public put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => (
-    this.request(url, { ...options, method: METHODS.PUT }, options.timeout));
+  public get = (url: string = '', options: RequestOptions = {}): Promise<XMLHttpRequest> => (
+    this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.GET }, options.timeout));
 
-  public delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => (
-    this.request(url, { ...options, method: METHODS.DELETE }, options.timeout));
+  public post = <T>(url: string, options: RequestOptions<T> = {}): Promise<XMLHttpRequest> => (
+    this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.POST }, options.timeout));
 
-  private request = (url: string, options: RequestOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
-    const { headers = {}, method, data } = options;
+  public put = <T>(url: string, options: RequestOptions<T> = {}): Promise<XMLHttpRequest> => (
+    this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.PUT }, options.timeout));
 
+  public delete = <T>(url: string, options: RequestOptions<T> = {}): Promise<XMLHttpRequest> => (
+    this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.DELETE }, options.timeout));
+
+  private request = <T>(url: string, options: RequestOptions<T> = {}, timeout = 5000): Promise<XMLHttpRequest> => {
+    const {
+      headers = {
+        'Content-Type': 'application/json',
+      }, method, data,
+    } = options;
+    console.log(headers);
     return new Promise((resolve, reject) => {
       if (!method) {
         reject(new Error('No method'));
@@ -60,11 +70,13 @@ export class HTTPTransport {
       xhr.open(
         method,
         isGet && !!data
-          ? `${url}${queryStringify(data)}`
+          ? `${url}${queryStringify(JSON.stringify(data))}`
           : url,
       );
+      xhr.withCredentials = true;
 
       Object.keys(headers).forEach((key) => {
+        console.log(headers);
         xhr.setRequestHeader(key, headers[key]);
       });
 
@@ -82,7 +94,7 @@ export class HTTPTransport {
       if (isGet || !data) {
         xhr.send();
       } else {
-        xhr.send(data);
+        xhr.send(JSON.stringify(data));
       }
     });
   };

@@ -13,7 +13,7 @@ type Options = {
 type Props = Record<string, unknown>;
 type ChildrenType = Record<string, Block>;
 
-export default class Block<P extends Props=Props>  {
+export default class Block<P extends Props = Props> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',

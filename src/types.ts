@@ -1,8 +1,8 @@
-export interface Chat {
-  id: number,
-  author: string,
-  firstUserMessage: string,
-  secondUserMessage: string,
-  date: string,
-  messagesCount: number,
+export interface User {
+  first_name: string;
+  second_name: string;
+  avatar: string;
+  email: string;
+  login: string;
+  phone: string;
 }

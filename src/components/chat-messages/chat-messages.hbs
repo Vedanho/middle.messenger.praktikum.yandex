@@ -2,63 +2,67 @@
   {{{UserAddModal}}}
 {{/if}}
 
-<div class="chat__container">
-  <div class="chat-header">
-    <div class="chat-header__avatar"></div>
-    <h1 class="chat-header__author">{{author}}</h1>
+{{#if activeChat.id }}
+  <div class="chat__container">
+    <div class="chat-header">
+      <div class="chat-header__avatar"></div>
+      <h1 class="chat-header__author">{{author}}</h1>
 
-    <div class="chat-header__button-wrapper">
-      {{{ActionsButton}}}
-      {{#if isShowActions}}
-        {{#> ActionsModal}}
-          {{{ModalTriggerButton}}}
-          {{{UserDeleteButton}}}
-        {{/ActionsModal}}
-      {{/if}}
-    </div>
-  </div>
-
-  <div class="chat-messages">
-    <div class="chat-messages__correspondence">
-      <div class="chat-messages__date">{{date}}</div>
-
-      <div class="chat-messages__message-wrapper">
-        <div class="chat-messages__message-content">
-          <div class="chat-messages__message-text">
-            <span>
-              {{firstUserMessage}}
-            </span>
-            <span class="chat-messages__time">11:56</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="chat-messages__message-wrapper chat-messages__message-wrapper_user">
-        <div class="chat-messages__message-content">
-          <div class="chat-messages__message-text chat-messages__message-text_user">
-            <span>{{secondUserMessage}}</span>
-            <img src="../../../checked-icon.svg" alt="checked" />
-            <span class="chat-messages__time chat-messages__time_user">11:56</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chat-form-wrapper">
-    <form class="chat-form">
-      <div class="chat-form__attach-wrapper">
-        {{{AttachmentsButton}}}
-        {{#if isShowAttach}}
+      <div class="chat-header__button-wrapper">
+        {{{ActionsButton}}}
+        {{#if isShowActions}}
           {{#> ActionsModal}}
-            {{{PhotoButton}}}
-            {{{FileButton}}}
-            {{{LocationButton}}}
+            {{{ModalTriggerButton}}}
+            {{{UserDeleteButton}}}
           {{/ActionsModal}}
         {{/if}}
       </div>
-      {{{MessageInput}}}
-      {{{SubmitButton}}}
-    </form>
+    </div>
+
+    <div class="chat-messages">
+      <div class="chat-messages__correspondence">
+        <div class="chat-messages__date">{{date}}</div>
+
+        <div class="chat-messages__message-wrapper">
+          <div class="chat-messages__message-content">
+            <div class="chat-messages__message-text">
+              <span>
+                {{firstUserMessage}}
+              </span>
+              <span class="chat-messages__time">11:56</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-messages__message-wrapper chat-messages__message-wrapper_user">
+          <div class="chat-messages__message-content">
+            <div class="chat-messages__message-text chat-messages__message-text_user">
+              <span>{{secondUserMessage}}</span>
+              <img src="../../../checked-icon.svg" alt="checked" />
+              <span class="chat-messages__time chat-messages__time_user">11:56</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-form-wrapper">
+      <form class="chat-form">
+        <div class="chat-form__attach-wrapper">
+          {{{AttachmentsButton}}}
+          {{#if isShowAttach}}
+            {{#> ActionsModal}}
+              {{{PhotoButton}}}
+              {{{FileButton}}}
+              {{{LocationButton}}}
+            {{/ActionsModal}}
+          {{/if}}
+        </div>
+        {{{MessageInput}}}
+        {{{SubmitButton}}}
+      </form>
+    </div>
   </div>
-</div>
+{{else}}
+    <div class="no-chat">Выберите чат, чтобы начать переписку</div>
+{{/if}}

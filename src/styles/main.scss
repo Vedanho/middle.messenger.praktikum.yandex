@@ -85,3 +85,10 @@ dialog {
   margin-top: 7px;
   margin-bottom: 0;
 }
+
+.form-error {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-red);
+}
